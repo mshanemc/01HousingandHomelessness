@@ -2,15 +2,9 @@
   <div class="outerDiv slds-size_1-of-1 slds-grid slds-wrap">
     <div class="slds-size_1-of-1 fullRecDiv">
       <div class="slds-clearfix">
-        <ul
-          class="slds-float_left slds-list_horizontal iconNameDiv slds-p-left_x-small"
-        >
+        <ul class="slds-float_left slds-list_horizontal iconNameDiv slds-p-left_x-small">
           <li>
-            <lightning-icon
-              icon-name="custom:custom1"
-              size="medium"
-              alternative-text="Services"
-            ></lightning-icon>
+            <lightning-icon icon-name="custom:custom1" size="medium" alternative-text="Services"></lightning-icon>
           </li>
           <li>
             <p class="slds-p-left_xx-small">Recommended Services</p>
@@ -33,21 +27,14 @@
           </lightning-button-group>
         </ul>
       </div>
-      <div
-        if:false={searchedRecommendations}
-        class="slds-size_1-of-1 slds-grid slds-wrap slds-align_absolute-center"
-      >
+      <div if:false={searchedRecommendations} class="slds-size_1-of-1 slds-grid slds-wrap slds-align_absolute-center">
         <div class="slds-size_1-of-1 slds-illustration slds-illustration_small">
           <c-illustration-fish></c-illustration-fish>
         </div>
-        <div
-          class="slds-size_1-of-1 slds-align_absolute-center slds-p-around_medium"
-        >
+        <div class="slds-size_1-of-1 slds-align_absolute-center slds-p-around_medium">
           <h3>No Recommendations Yet</h3>
         </div>
-        <div
-          class="slds-size_1-of-1 slds-align_absolute-center slds-p-around_medium"
-        >
+        <div class="slds-size_1-of-1 slds-align_absolute-center slds-p-around_medium">
           <lightning-button
             label="Get Recommended Services"
             variant="brand"
@@ -57,49 +44,23 @@
         </div>
       </div>
     </div>
-    <div
-      if:true={showRecommendations}
-      class="slds-size_1-of-1 slds-clearfix slds-m-top_small slds-m-bottom_small"
-    >
+    <div if:true={showRecommendations} class="slds-size_1-of-1 slds-clearfix slds-m-top_small slds-m-bottom_small">
       <!-- multi select picklist for filter of program types -->
       <div class="slds-float_left">
-        <c-multiselect-picklist
-          selectoptiontext={typeFilterLabel}
-        ></c-multiselect-picklist>
+        <c-multiselect-picklist selectoptiontext={typeFilterLabel}></c-multiselect-picklist>
       </div>
       <!-- show me filter -->
       <div class="slds-float_right slds-p-top_large">
-        <lightning-button-menu
-          alternative-text="Show More"
-          variant="border-filled"
-          icon-name="utility:sort"
-        >
-          <lightning-menu-item
-            value="rating"
-            label="Client Rating"
-            onclick={handleSortMenu}
-          ></lightning-menu-item>
-          <lightning-menu-item
-            value="distance"
-            label="Distance to Contact Address"
-            onclick={handleSortMenu}
-          ></lightning-menu-item>
-          <lightning-menu-item
-            value="popular"
-            label="Relevance"
-            onclick={handleSortMenu}
-          ></lightning-menu-item>
+        <lightning-button-menu alternative-text="Show More" variant="border-filled" icon-name="utility:sort">
+          <lightning-menu-item value="rating" label="Client Rating" onclick={handleSortMenu}></lightning-menu-item>
+          <lightning-menu-item value="distance" label="Distance to Contact Address" onclick={handleSortMenu}></lightning-menu-item>
+          <lightning-menu-item value="popular" label="Relevance" onclick={handleSortMenu}></lightning-menu-item>
         </lightning-button-menu>
       </div>
     </div>
 
     <div if:true={showRecommendations} class="mapDiv slds-size_1-of-1">
-      <lightning-map
-        list-view="hidden"
-        map-markers={mapMarkers}
-        zoom-level="10"
-      >
-      </lightning-map>
+      <lightning-map list-view="hidden" map-markers={mapMarkers} zoom-level="10"> </lightning-map>
     </div>
 
     <div if:true={noRecsMessage} class="slds-align_absolute-center">
@@ -107,16 +68,12 @@
         <c-illustration-compass></c-illustration-compass>
         <div class="slds-text-longform">
           <h3 class="slds-text-heading_small">
-            There are no recommendations at this time, please add a service or
-            check your configuration settings
+            There are no recommendations at this time, please add a service or check your configuration settings
           </h3>
         </div>
       </div>
     </div>
-    <div
-      if:true={showRecommendations}
-      class="innerRecDiv viewHeightFifty slds-scrollable_y"
-    >
+    <div if:true={showRecommendations} class="innerRecDiv viewHeightFifty slds-scrollable_y">
       <template for:each={returnRecommendations} for:item="recommendation">
         <c-service-recommendation
           key={recommendation.ServiceId}
@@ -130,34 +87,17 @@
     </div>
 
     <!-- show hidden -->
-    <div
-      if:true={returnHiddenRecommendations}
-      class="hiddenRecsDiv slds-scrollable_y"
-    >
-      <a href="#" if:false={showHiddenRecsList} onclick={handleShowHidden}
-        ><lightning-icon
-          class="slds-current-color"
-          size="xx-small"
-          icon-name="utility:chevronright"
-        >
-        </lightning-icon
-        >Hidden Recommendations ({returnHiddenRecommendationsCount})</a
-      >
-      <a href="#" if:true={showHiddenRecsList} onclick={handleShowHidden}
-        ><lightning-icon
-          class="slds-current-color"
-          size="xx-small"
-          icon-name="utility:chevrondown"
-        >
-        </lightning-icon
-        >Hidden Recommendations ({returnHiddenRecommendationsCount})</a
-      >
+    <div if:true={returnHiddenRecommendations} class="hiddenRecsDiv slds-scrollable_y">
+      <a href="#" if:false={showHiddenRecsList} onclick={handleShowHidden}>
+        <lightning-icon class="slds-current-color" size="xx-small" icon-name="utility:chevronright"></lightning-icon>
+        Hidden Recommendations ({returnHiddenRecommendationsCount})
+      </a>
+      <a href="#" if:true={showHiddenRecsList} onclick={handleShowHidden}>
+        <lightning-icon class="slds-current-color" size="xx-small" icon-name="utility:chevrondown"></lightning-icon>
+        Hidden Recommendations ({returnHiddenRecommendationsCount})
+      </a>
 
-      <template
-        if:true={showHiddenRecsList}
-        for:each={returnHiddenRecommendations}
-        for:item="hiddenrecommendation"
-      >
+      <template if:true={showHiddenRecsList} for:each={returnHiddenRecommendations} for:item="hiddenrecommendation">
         <c-service-recommendation
           onreloadafterhide={handleRequestRecommendations}
           key={hiddenrecommendation.ServiceId}
@@ -190,24 +130,15 @@
           >
           </lightning-button-icon>
         </header>
-        <div
-          class="slds-modal__content slds-p-around_medium"
-          id="modal-content-id-1"
-        >
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
           <div class="slds-size_1-of-1 slds-grid slds-wrap">
             <div class="slds-col recommendationsDiv recommendationsDivWide">
               <div class="outerDiv slds-size_1-of-1 slds-grid slds-wrap">
                 <div class="slds-size_1-of-1 fullRecDiv">
                   <div class="slds-clearfix">
-                    <ul
-                      class="slds-float_left slds-list_horizontal iconNameDiv slds-p-left_x-small"
-                    >
+                    <ul class="slds-float_left slds-list_horizontal iconNameDiv slds-p-left_x-small">
                       <li>
-                        <lightning-icon
-                          icon-name="custom:custom1"
-                          size="medium"
-                          alternative-text="Services"
-                        ></lightning-icon>
+                        <lightning-icon icon-name="custom:custom1" size="medium" alternative-text="Services"></lightning-icon>
                       </li>
                       <li>
                         <p class="slds-p-left_xx-small">Recommended Services</p>
@@ -230,10 +161,7 @@
                       </lightning-button-group>
                     </ul>
                   </div>
-                  <div
-                    if:false={showRecommendations}
-                    class="slds-size_1-of-1 slds-grid slds-wrap slds-align_absolute-center"
-                  >
+                  <div if:false={showRecommendations} class="slds-size_1-of-1 slds-grid slds-wrap slds-align_absolute-center">
                     <div class="slds-size_1-of-1 slds-align_absolute-center">
                       <h3>No Recommendations Yet</h3>
                     </div>
@@ -247,48 +175,22 @@
                   </div>
                 </div>
 
-                <div
-                  class="slds-size_1-of-1 slds-clearfix slds-m-top_small slds-m-bottom_small"
-                >
+                <div class="slds-size_1-of-1 slds-clearfix slds-m-top_small slds-m-bottom_small">
                   <div class="slds-float_left">
-                    <c-multiselect-picklist
-                      selectoptiontext={typeFilterLabel}
-                    ></c-multiselect-picklist>
+                    <c-multiselect-picklist selectoptiontext={typeFilterLabel}></c-multiselect-picklist>
                   </div>
                   <!-- show me filter -->
                   <div class="slds-float_right slds-p-top_large">
-                    <lightning-button-menu
-                      alternative-text="Show More"
-                      variant="border-filled"
-                      icon-name="utility:sort"
-                    >
-                      <lightning-menu-item
-                        value="rating"
-                        label="Client Rating"
-                        onclick={handleSortMenu}
-                      ></lightning-menu-item>
-                      <lightning-menu-item
-                        value="distance"
-                        label="Distance to Contact Address"
-                        onclick={handleSortMenu}
-                      ></lightning-menu-item>
-                      <lightning-menu-item
-                        value="popular"
-                        label="Relevance"
-                        onclick={handleSortMenu}
-                      ></lightning-menu-item>
+                    <lightning-button-menu alternative-text="Show More" variant="border-filled" icon-name="utility:sort">
+                      <lightning-menu-item value="rating" label="Client Rating" onclick={handleSortMenu}></lightning-menu-item>
+                      <lightning-menu-item value="distance" label="Distance to Contact Address" onclick={handleSortMenu}></lightning-menu-item>
+                      <lightning-menu-item value="popular" label="Relevance" onclick={handleSortMenu}></lightning-menu-item>
                     </lightning-button-menu>
                   </div>
                 </div>
 
-                <div
-                  if:true={returnRecommendations}
-                  class="innerRecModalDiv slds-scrollable_y"
-                >
-                  <template
-                    for:each={returnRecommendations}
-                    for:item="recommendation"
-                  >
+                <div if:true={returnRecommendations} class="innerRecModalDiv slds-scrollable_y">
+                  <template for:each={returnRecommendations} for:item="recommendation">
                     <c-service-recommendation
                       key={recommendation.ServiceId}
                       onreloadafterhide={handleRequestRecommendations}
@@ -300,42 +202,17 @@
                 </div>
 
                 <!-- show hidden -->
-                <div
-                  if:true={returnHiddenRecommendations}
-                  class="hiddenRecsDiv slds-scrollable_y"
-                >
-                  <a
-                    href="#"
-                    if:false={showHiddenRecsList}
-                    onclick={handleShowHidden}
-                    ><lightning-icon
-                      class="slds-current-color"
-                      size="xx-small"
-                      icon-name="utility:chevronright"
-                    >
-                    </lightning-icon
-                    >Hidden Recommendations
-                    ({returnHiddenRecommendationsCount})</a
-                  >
-                  <a
-                    href="#"
-                    if:true={showHiddenRecsList}
-                    onclick={handleShowHidden}
-                    ><lightning-icon
-                      class="slds-current-color"
-                      size="xx-small"
-                      icon-name="utility:chevrondown"
-                    >
-                    </lightning-icon
-                    >Hidden Recommendations
-                    ({returnHiddenRecommendationsCount})</a
-                  >
+                <div if:true={returnHiddenRecommendations} class="hiddenRecsDiv slds-scrollable_y">
+                  <a href="#" if:false={showHiddenRecsList} onclick={handleShowHidden}>
+                    <lightning-icon class="slds-current-color" size="xx-small" icon-name="utility:chevronright"></lightning-icon>
+                    Hidden Recommendations ({returnHiddenRecommendationsCount})
+                  </a>
+                  <a href="#" if:true={showHiddenRecsList} onclick={handleShowHidden}>
+                    <lightning-icon class="slds-current-color" size="xx-small" icon-name="utility:chevrondown"></lightning-icon>
+                    Hidden Recommendations ({returnHiddenRecommendationsCount})
+                  </a>
 
-                  <template
-                    if:true={showHiddenRecsList}
-                    for:each={returnHiddenRecommendations}
-                    for:item="hiddenrecommendation"
-                  >
+                  <template if:true={showHiddenRecsList} for:each={returnHiddenRecommendations} for:item="hiddenrecommendation">
                     <c-service-recommendation
                       onreloadafterhide={handleRequestRecommendations}
                       key={hiddenrecommendation.ServiceId}
@@ -348,12 +225,7 @@
               </div>
             </div>
             <div class="slds-col mapModalDiv width67">
-              <lightning-map
-                list-view="hidden"
-                map-markers={mapMarkers}
-                zoom-level="10"
-              >
-              </lightning-map>
+              <lightning-map list-view="hidden" map-markers={mapMarkers} zoom-level="10"></lightning-map>
             </div>
           </div>
         </div>

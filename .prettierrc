@@ -4,7 +4,7 @@
   "overrides": [
     {
       "files": "**/lwc/**/*.html",
-      "options": { "parser": "lwc" }
+      "options": { "parser": "lwc", "printWidth": 150 }
     },
     {
       "files": "*.{cmp,page,component}",
