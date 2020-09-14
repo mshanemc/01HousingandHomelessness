@@ -1,0 +1,1613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExternalServiceRegistration xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label>twilio</label>
+    <namedCredential>twilio</namedCredential>
+    <schema>{
+  &quot;swagger&quot;: &quot;2.0&quot;,
+  &quot;schemes&quot;: [&quot;https&quot;],
+  &quot;host&quot;: &quot;api.twilio.com&quot;,
+  &quot;basePath&quot;: &quot;/2010-04-01&quot;,
+  &quot;info&quot;: {
+    &quot;description&quot;: &quot;Enabling phones, VoIP, and messaging to be embedded into web, desktop, and mobile software.\n&quot;,
+    &quot;title&quot;: &quot;Twilio&quot;,
+    &quot;version&quot;: &quot;2010-04-01&quot;,
+    &quot;x-apisguru-categories&quot;: [&quot;telecom&quot;, &quot;messaging&quot;],
+    &quot;x-logo&quot;: {
+      &quot;url&quot;: &quot;https://api.apis.guru/v2/cache/logo/https_static1.twilio.com_marketing_bundles_marketing_img_logos_wordmark-red.svg&quot;
+    },
+    &quot;x-origin&quot;: [
+      {
+        &quot;format&quot;: &quot;swagger&quot;,
+        &quot;url&quot;: &quot;https://raw.githubusercontent.com/APIs-guru/unofficial_openapi_specs/master/twilio.com/2010-04-01/swagger.yaml&quot;,
+        &quot;version&quot;: &quot;2.0&quot;
+      }
+    ],
+    &quot;x-preferred&quot;: true,
+    &quot;x-providerName&quot;: &quot;twilio.com&quot;,
+    &quot;x-unofficialSpec&quot;: true
+  },
+  &quot;externalDocs&quot;: {
+    &quot;url&quot;: &quot;https://www.twilio.com/api&quot;
+  },
+  &quot;securityDefinitions&quot;: {
+    &quot;basic&quot;: {
+      &quot;type&quot;: &quot;basic&quot;
+    }
+  },
+  &quot;paths&quot;: {
+    &quot;/Accounts/{AccountSid}/Messages/{MessageSid}/Media/{MediaSid}{mediaTypeExtension}&quot;: {
+      &quot;get&quot;: {
+        &quot;description&quot;: &quot;Without an extension, the media is returned using the mime-type provided when the media was generated.&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;AccountSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;MessageSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;default&quot;: &quot;.xml&quot;,
+            &quot;description&quot;: &quot;By default, Twilio&apos;s REST API returns XML. You may obtain CSV, JSON or HTML by appending \&quot;.csv\&quot;, \&quot;.json\&quot;, or \&quot;.html\&quot;.\n&quot;,
+            &quot;enum&quot;: [&quot;.xml&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.html&quot;],
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;mediaTypeExtension&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;MediaSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;produces&quot;: [&quot;application/xml&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;The request was successful and the response body contains the representation\nrequested.\n&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/media&quot;
+            }
+          },
+          &quot;302&quot;: {
+            &quot;description&quot;: &quot;A common redirect response; you can GET the representation at the URI\nin the Location response header.\n&quot;
+          },
+          &quot;304&quot;: {
+            &quot;description&quot;: &quot;Your client&apos;s cached version of the representation is still up to date.\n&quot;
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;The supplied credentials, if any, are not sufficient to access the resource.\n&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;NOT FOUND.&quot;
+          },
+          &quot;429&quot;: {
+            &quot;description&quot;: &quot;Your application is sending too many simultaneous requests.&quot;
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;We couldn&apos;t return the representation due to an internal server error.\n&quot;
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;We are temporarily unable to return the representation. Please wait for\na bit and try again.\n&quot;
+          }
+        }
+      }
+    },
+    &quot;/Accounts/{AccountSid}/Messages/{MessageSid}/Media{mediaTypeExtension}&quot;: {
+      &quot;get&quot;: {
+        &quot;consumes&quot;: [&quot;application/x-www-form-urlencoded&quot;],
+        &quot;description&quot;: &quot;Returns a list of media associated with your message.&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;AccountSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;MessageSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;default&quot;: &quot;.xml&quot;,
+            &quot;description&quot;: &quot;By default, Twilio&apos;s REST API returns XML. You may obtain CSV, JSON or HTML by appending \&quot;.csv\&quot;, \&quot;.json\&quot;, or \&quot;.html\&quot;.\n&quot;,
+            &quot;enum&quot;: [&quot;.xml&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.html&quot;],
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;mediaTypeExtension&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;produces&quot;: [&quot;application/xml&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;The request was successful and the response body contains the representation\nrequested.\n&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/mediaList&quot;
+            }
+          },
+          &quot;302&quot;: {
+            &quot;description&quot;: &quot;A common redirect response; you can GET the representation at the URI\nin the Location response header.\n&quot;
+          },
+          &quot;304&quot;: {
+            &quot;description&quot;: &quot;Your client&apos;s cached version of the representation is still up to date.\n&quot;
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;The supplied credentials, if any, are not sufficient to access the resource.\n&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;NOT FOUND.&quot;
+          },
+          &quot;429&quot;: {
+            &quot;description&quot;: &quot;Your application is sending too many simultaneous requests.&quot;
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;We couldn&apos;t return the representation due to an internal server error.\n&quot;
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;We are temporarily unable to return the representation. Please wait for\na bit and try again.\n&quot;
+          }
+        }
+      }
+    },
+    &quot;/Accounts/{AccountSid}/Messages/{MessageSid}{mediaTypeExtension}&quot;: {
+      &quot;get&quot;: {
+        &quot;description&quot;: &quot;Returns a single message specified by the provided {MessageSid}.\n&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;AccountSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;default&quot;: &quot;.xml&quot;,
+            &quot;description&quot;: &quot;By default, Twilio&apos;s REST API returns XML. You may obtain CSV, JSON or HTML by appending \&quot;.csv\&quot;, \&quot;.json\&quot;, or \&quot;.html\&quot;.\n&quot;,
+            &quot;enum&quot;: [&quot;.xml&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.html&quot;],
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;mediaTypeExtension&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;MessageSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;produces&quot;: [&quot;application/xml&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;The request was successful and the response body contains the representation\nrequested.\n&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/message&quot;
+            }
+          },
+          &quot;302&quot;: {
+            &quot;description&quot;: &quot;A common redirect response; you can GET the representation at the URI\nin the Location response header.\n&quot;
+          },
+          &quot;304&quot;: {
+            &quot;description&quot;: &quot;Your client&apos;s cached version of the representation is still up to date.\n&quot;
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;The supplied credentials, if any, are not sufficient to access the resource.\n&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;NOT FOUND.&quot;
+          },
+          &quot;429&quot;: {
+            &quot;description&quot;: &quot;Your application is sending too many simultaneous requests.&quot;
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;We couldn&apos;t return the representation due to an internal server error.\n&quot;
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;We are temporarily unable to return the representation. Please wait for\na bit and try again.\n&quot;
+          }
+        }
+      }
+    },
+    &quot;/Accounts/{AccountSid}/Messages{mediaTypeExtension}&quot;: {
+      &quot;get&quot;: {
+        &quot;consumes&quot;: [&quot;application/x-www-form-urlencoded&quot;],
+        &quot;description&quot;: &quot;Returns a list of messages associated with your account. The list includes paging information.&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;AccountSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;default&quot;: &quot;.xml&quot;,
+            &quot;description&quot;: &quot;By default, Twilio&apos;s REST API returns XML. You may obtain CSV, JSON or HTML by appending \&quot;.csv\&quot;, \&quot;.json\&quot;, or \&quot;.html\&quot;.\n&quot;,
+            &quot;enum&quot;: [&quot;.xml&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.html&quot;],
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;mediaTypeExtension&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;produces&quot;: [&quot;application/xml&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;The request was successful and the response body contains the representation\nrequested.\n&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/messages&quot;
+            }
+          },
+          &quot;302&quot;: {
+            &quot;description&quot;: &quot;A common redirect response; you can GET the representation at the URI\nin the Location response header.\n&quot;
+          },
+          &quot;304&quot;: {
+            &quot;description&quot;: &quot;Your client&apos;s cached version of the representation is still up to date.\n&quot;
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;The supplied credentials, if any, are not sufficient to access the resource.\n&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;NOT FOUND.&quot;
+          },
+          &quot;429&quot;: {
+            &quot;description&quot;: &quot;Your application is sending too many simultaneous requests.&quot;
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;We couldn&apos;t return the representation due to an internal server error.\n&quot;
+          },
+          &quot;503&quot;: {
+            &quot;description&quot;: &quot;We are temporarily unable to return the representation. Please wait for\na bit and try again.\n&quot;
+          }
+        }
+      },
+      &quot;post&quot;: {
+        &quot;consumes&quot;: [&quot;application/x-www-form-urlencoded&quot;],
+        &quot;description&quot;: &quot;To send a new outgoing message, make an HTTP POST to your Messages list resource URI&quot;,
+        &quot;parameters&quot;: [
+          {
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;AccountSid&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;default&quot;: &quot;.xml&quot;,
+            &quot;description&quot;: &quot;By default, Twilio&apos;s REST API returns XML. You may obtain CSV, JSON or HTML by appending \&quot;.csv\&quot;, \&quot;.json\&quot;, or \&quot;.html\&quot;.\n&quot;,
+            &quot;enum&quot;: [&quot;.xml&quot;, &quot;.json&quot;, &quot;.csv&quot;, &quot;.html&quot;],
+            &quot;in&quot;: &quot;path&quot;,
+            &quot;name&quot;: &quot;mediaTypeExtension&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;description&quot;: &quot;The destination phone number. Format with a &apos;+&apos; and country code e.g., +16175551212 (E.164 format).\n&quot;,
+            &quot;in&quot;: &quot;formData&quot;,
+            &quot;name&quot;: &quot;To&quot;,
+            &quot;required&quot;: true,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;description&quot;: &quot;A Twilio phone number (in E.164 format) or alphanumeric sender ID enabled for the type of message you wish to send. Phone numbers or short codes purchased from Twilio work here. You cannot (for example) spoof messages from your own cell phone number.\n&quot;,
+            &quot;in&quot;: &quot;formData&quot;,
+            &quot;name&quot;: &quot;From&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;description&quot;: &quot;The 34 character unique id of the Messaging Service you want to associate with this Message. Set this parameter to use the Messaging Service Settings and Copilot Features you have configured. When only this parameter is set, Twilio will use your enabled Copilot Features to select the From phone number for delivery.\n&quot;,
+            &quot;in&quot;: &quot;formData&quot;,
+            &quot;name&quot;: &quot;MessagingServiceSid&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;description&quot;: &quot;The text of the message you want to send, limited to 1600 characters.\n&quot;,
+            &quot;in&quot;: &quot;formData&quot;,
+            &quot;name&quot;: &quot;Body&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          },
+          {
+            &quot;description&quot;: &quot;The URL of the media you wish to send out with the message. gif , png and jpeg content is currently supported and will be formatted correctly on the recipient&apos;s device. Other types are also accepted by the API. The media size limit is 5MB. If you wish to send more than one image in the message body, please provide multiple MediaUrls values in the POST request. You may include up to 10 MediaUrls per message.\n&quot;,
+            &quot;in&quot;: &quot;formData&quot;,
+            &quot;name&quot;: &quot;MediaUrl&quot;,
+            &quot;type&quot;: &quot;string&quot;
+          }
+        ],
+        &quot;produces&quot;: [&quot;application/xml&quot;],
+        &quot;responses&quot;: {
+          &quot;200&quot;: {
+            &quot;description&quot;: &quot;The request was successful, we updated the resource and the response\nbody contains the representation.\n&quot;
+          },
+          &quot;201&quot;: {
+            &quot;description&quot;: &quot;The request was successful, we created a new resource and the response\nbody contains the representation.\n&quot;,
+            &quot;schema&quot;: {
+              &quot;$ref&quot;: &quot;#/definitions/message&quot;
+            }
+          },
+          &quot;400&quot;: {
+            &quot;description&quot;: &quot;The data given in the POST or PUT failed validation. Inspect the response\nbody for details.\n&quot;
+          },
+          &quot;401&quot;: {
+            &quot;description&quot;: &quot;The supplied credentials, if any, are not sufficient to create or update\nthe resource.\n&quot;
+          },
+          &quot;404&quot;: {
+            &quot;description&quot;: &quot;NOT FOUND.&quot;
+          },
+          &quot;405&quot;: {
+            &quot;description&quot;: &quot;You can&apos;t POST or PUT to the resource.&quot;
+          },
+          &quot;429&quot;: {
+            &quot;description&quot;: &quot;Your application is sending too many simultaneous requests.&quot;
+          },
+          &quot;500&quot;: {
+            &quot;description&quot;: &quot;We couldn&apos;t return the representation due to an internal server error.\n&quot;
+          }
+        }
+      }
+    }
+  },
+  &quot;definitions&quot;: {
+    &quot;account&quot;: {
+      &quot;properties&quot;: {
+        &quot;auth_token&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_created&quot;: {
+          &quot;description&quot;: &quot;The date that this account was created, in GMT in RFC 2822 format&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;description&quot;: &quot;The date that this account was last updated, in GMT in RFC 2822 format.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;friendly_name&quot;: {
+          &quot;description&quot;: &quot;A human readable description of this account, up to 64 characters long. By default the FriendlyName is your email address.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;description&quot;: &quot;A 34 character string that uniquely identifies this account.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;status&quot;: {
+          &quot;description&quot;: &quot;The status of this account. Usually active, but can be suspended or closed.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;subresource_uris&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;type&quot;: {
+          &quot;description&quot;: &quot;The type of this account. Either Trial or Full if you&apos;ve upgraded.&quot;,
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;accounts&quot;: {
+      &quot;properties&quot;: {
+        &quot;accounts&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;date_created&quot;: {
+                &quot;description&quot;: &quot;The date that this account was created, in GMT in RFC 2822 format&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;description&quot;: &quot;The date that this account was last updated, in GMT in RFC 2822 format.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;description&quot;: &quot;A human readable description of this account, up to 64 characters long. By default the FriendlyName is your email address.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;description&quot;: &quot;A 34 character string that uniquely identifies this account.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;status&quot;: {
+                &quot;description&quot;: &quot;The status of this account. Usually active, but can be suspended or closed.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;type&quot;: {
+                &quot;description&quot;: &quot;The type of this account. Either Trial or Full if you&apos;ve upgraded.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;null&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;null&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;appResource&quot;: {
+      &quot;properties&quot;: {
+        &quot;account_sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;api_version&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;friendly_name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_fallback_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_fallback_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_status_callback&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;status_callback&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;status_callback_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;voice_caller_id_lookup&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;voice_fallback_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;voice_fallback_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;voice_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;voice_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;appResources&quot;: {
+      &quot;properties&quot;: {
+        &quot;applications&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;account_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;api_version&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_fallback_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_fallback_url&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_status_callback&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_url&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;status_callback&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;status_callback_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;voice_caller_id_lookup&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;voice_fallback_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;voice_fallback_url&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;voice_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;voice_url&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;integer&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;credential&quot;: {
+      &quot;properties&quot;: {
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;username&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;credentialList&quot;: {
+      &quot;properties&quot;: {
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;friendly_name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;subresource_uris&quot;: {
+          &quot;properties&quot;: {
+            &quot;credentials&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;credentialListMapping&quot;: {
+      &quot;properties&quot;: {
+        &quot;account_sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;friendly_name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;subresource_uris&quot;: {
+          &quot;properties&quot;: {
+            &quot;credentials&quot;: {
+              &quot;type&quot;: &quot;string&quot;
+            }
+          },
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;credentialListMappings&quot;: {
+      &quot;properties&quot;: {
+        &quot;credential_list_mappings&quot;: {
+          &quot;items&quot;: {
+            &quot;items&quot;: {
+              &quot;properties&quot;: {
+                &quot;account_sid&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;date_created&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;date_updated&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;friendly_name&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;sid&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                },
+                &quot;subresource_uris&quot;: {
+                  &quot;properties&quot;: {
+                    &quot;credentials&quot;: {
+                      &quot;type&quot;: &quot;string&quot;
+                    }
+                  },
+                  &quot;type&quot;: &quot;object&quot;
+                },
+                &quot;uri&quot;: {
+                  &quot;type&quot;: &quot;string&quot;
+                }
+              },
+              &quot;type&quot;: &quot;object&quot;
+            },
+            &quot;type&quot;: &quot;array&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;credentialLists&quot;: {
+      &quot;properties&quot;: {
+        &quot;credential_lists&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;subresource_uris&quot;: {
+                &quot;properties&quot;: {
+                  &quot;credentials&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;credentials&quot;: {
+      &quot;properties&quot;: {
+        &quot;credentials&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;account_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;credential_list_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;username&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+
+    &quot;media&quot;: {
+      &quot;properties&quot;: {
+        &quot;account_sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;content-type&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;parent_sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;mediaList&quot;: {
+      &quot;properties&quot;: {
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;media_list&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;account_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;content_type&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;parent_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;message&quot;: {
+      &quot;properties&quot;: {
+        &quot;account_sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;api_version&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;body&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_sent&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;direction&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;from&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;num_media&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;num_segments&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;price&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;status&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;to&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;messages&quot;: {
+      &quot;properties&quot;: {
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;messages&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;account_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;api_version&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;body&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_sent&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;direction&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;from&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;num_media&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;num_segments&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;price&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;status&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;to&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;mobilePhoneNumbers&quot;: {
+      &quot;properties&quot;: {
+        &quot;available_phone_numbers&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;capabilities&quot;: {
+                &quot;properties&quot;: {
+                  &quot;MMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;SMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;voice&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;iso_country&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;lata&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;latitude&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;longitude&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;phone_number&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;postal_code&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;rate_center&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;region&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+
+    &quot;phoneLocalNumbers&quot;: {
+      &quot;properties&quot;: {
+        &quot;available_phone_numbers&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;capabilities&quot;: {
+                &quot;properties&quot;: {
+                  &quot;MMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;SMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;voice&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;iso_country&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;lata&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;latitude&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;longitude&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;phone_number&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;postal_code&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;rate_center&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;region&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;phoneMobileNumbers&quot;: {
+      &quot;properties&quot;: {
+        &quot;available_phone_numbers&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;capabilities&quot;: {
+                &quot;properties&quot;: {
+                  &quot;MMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;SMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;voice&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;iso_country&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;lata&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;latitude&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;longitude&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;phone_number&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;postal_code&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;rate_center&quot;: {
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;region&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;phoneNumbers&quot;: {
+      &quot;properties&quot;: {
+        &quot;available_phone_numbers&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;friendly_name&quot;: {
+                &quot;description&quot;: &quot;A nicely-formatted version of the phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;iso_country&quot;: {
+                &quot;description&quot;: &quot;The ISO country code of this phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;lata&quot;: {
+                &quot;description&quot;: &quot;The LATA of this phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;latitude&quot;: {
+                &quot;description&quot;: &quot;The latitude coordinate of this phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;longitude&quot;: {
+                &quot;description&quot;: &quot;The longitude coordinate of this phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;phone_number&quot;: {
+                &quot;description&quot;: &quot;The phone number, in E.164 (i.e. &apos;+1&apos;) format.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;postal_code&quot;: {
+                &quot;description&quot;: &quot;The postal (zip) code of this phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;rate_center&quot;: {
+                &quot;description&quot;: &quot;The rate center of this phone number.&quot;,
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;region&quot;: {
+                &quot;description&quot;: &quot;The two-letter state or province abbreviation of this phone number.&quot;,
+                &quot;maxLength&quot;: 2,
+                &quot;minLength&quot;: 2,
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;phoneTollFreeNumbers&quot;: {
+      &quot;properties&quot;: {
+        &quot;available_phone_numbers&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;capabilities&quot;: {
+                &quot;properties&quot;: {
+                  &quot;MMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;SMS&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  },
+                  &quot;voice&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;iso_country&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;phone_number&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;shortCode&quot;: {
+      &quot;properties&quot;: {
+        &quot;account_sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_created&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;date_updated&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;friendly_name&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;short_code&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sid&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_fallback_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_fallback_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_method&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;sms_url&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;shortCodes&quot;: {
+      &quot;properties&quot;: {
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;short_codes&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;account_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;short_code&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_fallback_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_fallback_url&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_method&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sms_url&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    },
+    &quot;userLists&quot;: {
+      &quot;properties&quot;: {
+        &quot;credential_list_mappings&quot;: {
+          &quot;items&quot;: {
+            &quot;properties&quot;: {
+              &quot;account_sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_created&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;date_updated&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;friendly_name&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;sid&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              },
+              &quot;subresource_uris&quot;: {
+                &quot;properties&quot;: {
+                  &quot;credentials&quot;: {
+                    &quot;type&quot;: &quot;string&quot;
+                  }
+                },
+                &quot;type&quot;: &quot;object&quot;
+              },
+              &quot;uri&quot;: {
+                &quot;type&quot;: &quot;string&quot;
+              }
+            },
+            &quot;type&quot;: &quot;object&quot;
+          },
+          &quot;type&quot;: &quot;array&quot;
+        },
+        &quot;end&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;first_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;last_page_uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        },
+        &quot;next_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;num_pages&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;page_size&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;previous_page_uri&quot;: {
+          &quot;type&quot;: &quot;object&quot;
+        },
+        &quot;start&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;total&quot;: {
+          &quot;type&quot;: &quot;number&quot;
+        },
+        &quot;uri&quot;: {
+          &quot;type&quot;: &quot;string&quot;
+        }
+      },
+      &quot;type&quot;: &quot;object&quot;
+    }
+  }
+}
+</schema>
+    <schemaType>OpenApi</schemaType>
+    <status>Complete</status>
+</ExternalServiceRegistration>
